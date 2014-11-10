@@ -1,0 +1,16 @@
+{
+  "name": "puppet-common",
+  "version": "0.1.0",
+  "author": "Vang Nguyen <mtb.vang@gmail.com>",
+  "summary": "Common library of puppet manifests used by other puppet modules.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/mtbvang/puppet-common.git",
+  "project_page": "https://github.com/mtbvang/puppet-common",
+  "issues_url": "https://github.com/mtbvang/puppet-common/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ]
+}

@@ -4,5 +4,8 @@ spec/fixtures
 .rspec_system
 .vagrant
 .bundle
+.tmp
+.librarian
 vendor
 /.project
+/modules/

@@ -5,16 +5,8 @@
 #
 class common::params {
   case $::osfamily {
-    'Debian': {
-      $package_name = 'common'
-      $service_name = 'common'
-    }
-    'RedHat', 'Amazon': {
-      $package_name = 'common'
-      $service_name = 'common'
-    }
-    default: {
-      fail("${::operatingsystem} not supported")
-    }
+    'Debian'           : { }
+    'RedHat', 'Amazon' : { }
+    default            : { fail("${::operatingsystem} not supported") }
   }
 }

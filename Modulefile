@@ -1,4 +1,4 @@
-name          'puppet-common'
+name          'mtbvang-common'
 version       '0.1.0'
 source        'https://github.com/mtbvang/puppet-common.git'
 author        'Vang Nguyen <mtb.vang@gmail.com>'

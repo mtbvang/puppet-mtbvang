@@ -9,7 +9,7 @@ class common::ubuntu::vagrant (
     'vagrant-hosts,2.1.5',
     'vagrant-vbguest,0.10.0',
     'vagrant-hostsupdater,0.0.11',
-    'vagrant-cashier,1.1.0']) {
+    'vagrant-cachier,1.1.0']) {
   ::wget::fetch { "fetchVagrant":
     before      => Package['vagrant'],
     source      => $downloadUrl,

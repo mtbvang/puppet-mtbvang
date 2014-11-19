@@ -45,7 +45,7 @@ class common::ubuntu::vagrant (
 define common::ubuntu::vagrant::plugin ($user = 'dev', $userHome = '/home/dev',) {
   $plugin = split($name, ',')
 
-  exec { 'vagrant_cachier_plugin':
+  exec { "${plugin[0]}-plugin":
     environment => "HOME=${userHome}",
     command     => "/usr/bin/vagrant plugin install ${plugin[0]} --plugin-version ${plugin[1]}",
     require     => [Package['vagrant']],

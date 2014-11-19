@@ -7,7 +7,7 @@ class common::ubuntu::vagrant (
   $userHome    = '/home/dev',
   $plugins     = [
     'vagrant-hosts,2.1.5',
-    'vagrant-vbguests,0.10.0',
+    'vagrant-vbguest,0.10.0',
     'vagrant-hostsupdater,0.0.11',
     'vagrant-cashier,1.1.0']) {
   ::wget::fetch { "fetchVagrant":

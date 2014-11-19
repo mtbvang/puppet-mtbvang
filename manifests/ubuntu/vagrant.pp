@@ -49,9 +49,7 @@ define common::ubuntu::vagrant::plugin ($user = 'dev', $userHome = '/home/dev',)
 
   exec { "${plugin[0]}-plugin":
     environment => "HOME=${userHome}",
-    command     => "/usr/bin/vagrant plugin install ${plugin[0]} --plugin-version ${plugin[1]}",
-    require     => [Package['vagrant']],
-    before      => File["${userHome}/.vagrant.d"],
+    command     => "/usr/bin/vagrant plugin install ${plugin[0]} --plugin-version ${plugin[1]}",    
     logoutput   => on_failure,
     unless      => "vagrant plugin list | grep '${plugin[0]} (${plugin[1]})'",
     user        => $user,

@@ -39,7 +39,8 @@ class common::ubuntu::vagrant (
   exec { 'vagrant_hosts_plugin':
     environment => "HOME=${userHome}",
     command     => "/usr/bin/vagrant plugin install vagrant-hosts --plugin-version ${hostPluginVersion}",
-    require     => [Package['vagrant'], File["${userHome}/.vagrant.d"]],
+    require     => [Package['vagrant']],
+    before      => File["${userHome}/.vagrant.d"],
     logoutput   => on_failure,
     unless      => "vagrant plugin list | grep 'vagrant-hosts (${hostPluginVersion})'"
   }
@@ -47,7 +48,8 @@ class common::ubuntu::vagrant (
   exec { 'vagrant_vbguest_plugin':
     environment => "HOME=${userHome}",
     command     => "/usr/bin/vagrant plugin install vagrant-vbguest --plugin-version ${vbguestPluginVersion}",
-    require     => [Package['vagrant'], File["${userHome}/.vagrant.d"]],
+    require     => [Package['vagrant']],
+    before      => File["${userHome}/.vagrant.d"],
     logoutput   => on_failure,
     unless      => "vagrant plugin list | grep 'vagrant-vbguest (${vbguestPluginVersion})'"
   }
@@ -55,7 +57,8 @@ class common::ubuntu::vagrant (
   exec { 'vagrant_hostsupdater_plugin':
     environment => "HOME=${userHome}",
     command     => "/usr/bin/vagrant plugin install vagrant-hostsupdater --plugin-version ${hostsupdatePluginVersion}",
-    require     => [Package['vagrant'], File["${userHome}/.vagrant.d"]],
+    require     => [Package['vagrant']],
+    before      => File["${userHome}/.vagrant.d"],
     logoutput   => on_failure,
     unless      => "vagrant plugin list | grep 'vagrant-hostsupdater (${hostsupdatePluginVersion})'"
   }
@@ -63,7 +66,8 @@ class common::ubuntu::vagrant (
   exec { 'vagrant_cachier_plugin':
     environment => "HOME=${userHome}",
     command     => "/usr/bin/vagrant plugin install vagrant-cachier --plugin-version ${cachierPluginVersion}",
-    require     => [Package['vagrant'], File["${userHome}/.vagrant.d"]],
+    require     => [Package['vagrant']],
+    before      => File["${userHome}/.vagrant.d"],
     logoutput   => on_failure,
     unless      => "vagrant plugin list | grep 'vagrant-cachier (${cachierPluginVersion})'"
   }

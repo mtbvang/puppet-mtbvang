@@ -27,22 +27,14 @@ class common::ubuntu::vagrant (
     source   => "/tmp/vagrant.deb",
   }
 
-  file { "${userHome}/.vagrant.d":
-    require => Package['vagrant'],
-    ensure  => 'directory',
-    owner   => $user,
-    group   => $user,
-    # mode    => '0755',
-    recurse => true,
-  }
-
   exec { 'vagrant_hosts_plugin':
     environment => "HOME=${userHome}",
     command     => "/usr/bin/vagrant plugin install vagrant-hosts --plugin-version ${hostPluginVersion}",
     require     => [Package['vagrant']],
     before      => File["${userHome}/.vagrant.d"],
     logoutput   => on_failure,
-    unless      => "vagrant plugin list | grep 'vagrant-hosts (${hostPluginVersion})'"
+    unless      => "vagrant plugin list | grep 'vagrant-hosts (${hostPluginVersion})'",
+    user        => $user,
   }
 
   exec { 'vagrant_vbguest_plugin':
@@ -51,7 +43,8 @@ class common::ubuntu::vagrant (
     require     => [Package['vagrant']],
     before      => File["${userHome}/.vagrant.d"],
     logoutput   => on_failure,
-    unless      => "vagrant plugin list | grep 'vagrant-vbguest (${vbguestPluginVersion})'"
+    unless      => "vagrant plugin list | grep 'vagrant-vbguest (${vbguestPluginVersion})'",
+    user        => $user,
   }
 
   exec { 'vagrant_hostsupdater_plugin':
@@ -60,7 +53,8 @@ class common::ubuntu::vagrant (
     require     => [Package['vagrant']],
     before      => File["${userHome}/.vagrant.d"],
     logoutput   => on_failure,
-    unless      => "vagrant plugin list | grep 'vagrant-hostsupdater (${hostsupdatePluginVersion})'"
+    unless      => "vagrant plugin list | grep 'vagrant-hostsupdater (${hostsupdatePluginVersion})'",
+    user        => $user,
   }
 
   exec { 'vagrant_cachier_plugin':
@@ -69,7 +63,17 @@ class common::ubuntu::vagrant (
     require     => [Package['vagrant']],
     before      => File["${userHome}/.vagrant.d"],
     logoutput   => on_failure,
-    unless      => "vagrant plugin list | grep 'vagrant-cachier (${cachierPluginVersion})'"
+    unless      => "vagrant plugin list | grep 'vagrant-cachier (${cachierPluginVersion})'",
+    user        => $user,
+  }
+
+  file { "${userHome}/.vagrant.d":
+    require => Package['vagrant'],
+    ensure  => 'directory',
+    owner   => $user,
+    group   => $user,
+    # mode    => '0755',
+    recurse => true,
   }
 
 }

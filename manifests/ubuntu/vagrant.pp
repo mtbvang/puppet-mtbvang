@@ -29,8 +29,10 @@ class common::ubuntu::vagrant (
   }
 
   common::ubuntu::vagrant::plugin { $plugins:
-    before  => File["${userHome}/.vagrant.d"],
-    require => [Package['vagrant']],
+    before   => File["${userHome}/.vagrant.d"],
+    require  => [Package['vagrant']],
+    user     => $user,
+    userHome => $userHome,
   }
 
   file { "${userHome}/.vagrant.d":

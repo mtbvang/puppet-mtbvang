@@ -28,9 +28,10 @@ class common::ubuntu::vagrant (
     logoutput => on_failure,
     creates   => $downloadFile,
     user      => 'root',
-  } ->
+  }
+
   package { "vagrant":
-    require  => Package[$vagrantRequiredPkgs],
+    require  => [Package[$vagrantRequiredPkgs], Exec['removeOldVagrant']],
     ensure   => installed,
     provider => dpkg,
     source   => $downloadFile,
@@ -62,4 +63,3 @@ define common::ubuntu::vagrant::plugin ($user = 'dev', $userHome = '/home/dev',)
     unless      => "vagrant plugin list | grep '${plugin[0]} (${plugin[1]})'",
     user        => $user,
   }
-}

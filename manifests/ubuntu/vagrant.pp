@@ -24,7 +24,7 @@ class common::ubuntu::vagrant (
   package { $vagrantRequiredPkgs: ensure => installed }
 
   exec { 'removeOldVagrant':
-    command   => "apt-get remove vagrant",
+    command   => "apt-get -y remove vagrant",
     logoutput => on_failure,
     creates   => $downloadFile,
     user      => 'root',

@@ -63,3 +63,5 @@ define common::ubuntu::vagrant::plugin ($user = 'dev', $userHome = '/home/dev',)
     unless      => "vagrant plugin list | grep '${plugin[0]} (${plugin[1]})'",
     user        => $user,
   }
+}
+

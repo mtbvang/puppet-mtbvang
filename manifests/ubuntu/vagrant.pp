@@ -10,10 +10,12 @@ class common::ubuntu::vagrant (
     'vagrant-vbguest,0.10.0',
     'vagrant-hostsupdater,0.0.11',
     'vagrant-cachier,1.1.0']) {
+  $downloadFile = '/tmp/vagrant.deb'
+
   ::wget::fetch { "fetchVagrant":
     before      => Package['vagrant'],
     source      => $downloadUrl,
-    destination => "/tmp/vagrant.deb",
+    destination => $downloadFile,
     chmod       => 0755,
   }
 
@@ -21,11 +23,17 @@ class common::ubuntu::vagrant (
 
   package { $vagrantRequiredPkgs: ensure => installed }
 
+  exec { 'removeOldVagrant':
+    command   => "apt-get remove vagrant",
+    logoutput => on_failure,
+    creates   => $downloadFile,
+    user      => 'root',
+  } ->
   package { "vagrant":
     require  => Package[$vagrantRequiredPkgs],
     ensure   => installed,
     provider => dpkg,
-    source   => "/tmp/vagrant.deb",
+    source   => $downloadFile,
   }
 
   common::ubuntu::vagrant::plugin { $plugins:
@@ -49,7 +57,7 @@ define common::ubuntu::vagrant::plugin ($user = 'dev', $userHome = '/home/dev',)
 
   exec { "${plugin[0]}-plugin":
     environment => "HOME=${userHome}",
-    command     => "/usr/bin/vagrant plugin install ${plugin[0]} --plugin-version ${plugin[1]}",    
+    command     => "/usr/bin/vagrant plugin install ${plugin[0]} --plugin-version ${plugin[1]}",
     logoutput   => on_failure,
     unless      => "vagrant plugin list | grep '${plugin[0]} (${plugin[1]})'",
     user        => $user,

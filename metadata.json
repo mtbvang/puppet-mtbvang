@@ -1,18 +1,20 @@
 {
-  "name": "mtbvang-common",
+  "name": "mtbvang-mtbvang",
   "version": "0.1.0",
   "author": "Vang Nguyen <mtb.vang@gmail.com>",
   "summary": "Common library of puppet manifests used by other puppet modules.",
   "license": "Apache 2.0",
-  "source": "https://github.com/mtbvang/puppet-common.git",
-  "project_page": "https://github.com/mtbvang/puppet-common",
+  "source": "https://github.com/mtbvang/puppet-mtbvang.git",
+  "project_page": "https://github.com/mtbvang/puppet-mtbvang",
   "issues_url": "https://github.com/mtbvang/puppet-common/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
       "version_requirement": ">= 1.0.0"
     },
+    {"version_requirement":">= 1.0.4","name":"leonardothibes-wget"},
     {"name":"leonardothibes/wget","version_requirement":"1.0.4"},
+    {"version_requirement":">= 1.6.0","name":"puppetlabs-apt"},
     {"name":"puppetlabs/apt","version_requirement":"1.6.0"}
   ]
 }

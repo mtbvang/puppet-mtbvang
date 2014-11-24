@@ -1,4 +1,4 @@
-class common::ubuntu::skype ($ensure = 'latest') {
+class mtbvang::ubuntu::skype ($ensure = 'latest') {
   include apt
 
   apt::source { 'canonicalArhive':

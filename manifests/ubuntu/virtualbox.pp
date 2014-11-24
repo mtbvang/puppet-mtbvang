@@ -1,4 +1,4 @@
-class common::ubuntu::virtualbox ($packageName = "virtualbox-4.3") {
+class mtbvang::ubuntu::virtualbox ($packageName = "virtualbox-4.3") {
   apt::source { virtualbox:
     location    => 'http://download.virtualbox.org/virtualbox/debian',
     release     => 'trusty',

@@ -1,7 +1,7 @@
 #
 # Install vagrant and plugins.
 #
-class common::ubuntu::vagrant (
+class mtbvang::ubuntu::vagrant (
   $downloadUrl = "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3_x86_64.deb",
   $user        = 'dev',
   $userHome    = '/home/dev',
@@ -37,7 +37,7 @@ class common::ubuntu::vagrant (
     source   => $downloadFile,
   }
 
-  common::ubuntu::vagrant::plugin { $plugins:
+  mtbvang::ubuntu::vagrant::plugin { $plugins:
     before   => File["${userHome}/.vagrant.d"],
     require  => [Package['vagrant']],
     user     => $user,
@@ -53,7 +53,7 @@ class common::ubuntu::vagrant (
   }
 }
 
-define common::ubuntu::vagrant::plugin ($user = 'dev', $userHome = '/home/dev',) {
+define mtbvang::ubuntu::vagrant::plugin ($user = 'dev', $userHome = '/home/dev',) {
   $plugin = split($name, ',')
 
   exec { "${plugin[0]}-plugin":

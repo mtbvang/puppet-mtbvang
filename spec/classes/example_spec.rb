@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe 'common' do
+describe 'mtbvang' do
   context 'supported operating systems' do
     ['Debian', 'RedHat'].each do |osfamily|
-      describe "common class without any parameters on #{osfamily}" do
+      describe "mtbvang class without any parameters on #{osfamily}" do
         let(:params) {{ }}
         let(:facts) {{
           :osfamily => osfamily,
@@ -11,25 +11,25 @@ describe 'common' do
 
         it { should compile.with_all_deps }
 
-        it { should contain_class('common::params') }
-        it { should contain_class('common::install').that_comes_before('common::config') }
-        it { should contain_class('common::config') }
-        it { should contain_class('common::service').that_subscribes_to('common::config') }
+        it { should contain_class('mtbvang::params') }
+        it { should contain_class('mtbvang::install').that_comes_before('mtbvang::config') }
+        it { should contain_class('mtbvang::config') }
+        it { should contain_class('mtbvang::service').that_subscribes_to('mtbvang::config') }
 
-        it { should contain_service('common') }
-        it { should contain_package('common').with_ensure('present') }
+        it { should contain_service('mtbvang') }
+        it { should contain_package('mtbvang').with_ensure('present') }
       end
     end
   end
 
   context 'unsupported operating system' do
-    describe 'common class without any parameters on Solaris/Nexenta' do
+    describe 'mtbvang class without any parameters on Solaris/Nexenta' do
       let(:facts) {{
         :osfamily        => 'Solaris',
         :operatingsystem => 'Nexenta',
       }}
 
-      it { expect { should contain_package('common') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
+      it { expect { should contain_package('mtbvang') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
     end
   end
 end

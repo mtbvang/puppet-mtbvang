@@ -1,12 +1,12 @@
 require 'spec_helper_acceptance'
 
-describe 'common class' do
+describe 'mtbvang class' do
 
   context 'default parameters' do
     # Using puppet_apply as a helper
     it 'should work idempotently with no errors' do
       pp = <<-EOS
-      class { 'common': }
+      class { 'mtbvang': }
       EOS
 
       # Run it twice and test for idempotency
@@ -14,11 +14,11 @@ describe 'common class' do
       apply_manifest(pp, :catch_changes  => true)
     end
 
-    describe package('common') do
+    describe package('mtbvang') do
       it { is_expected.to be_installed }
     end
 
-    describe service('common') do
+    describe service('mtbvang') do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
     end

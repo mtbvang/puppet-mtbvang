@@ -1,12 +1,12 @@
-# == Class: common
+# == Class: mtbvang
 #
-# Full description of class common here.
+# Full description of class mtbvang here.
 #
 # === Parameters
 #
 # [*sample_parameter*]
 #   Explanation of what this parameter affects and what it defaults to.
 #
-class common () inherits ::common::params {
+class mtbvang () inherits ::mtbvang::params {
 
 }

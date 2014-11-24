@@ -1,9 +1,9 @@
-# == Class common::params
+# == Class mtbvang::params
 #
-# This class is meant to be called from common
+# This class is meant to be called from mtbvang
 # It sets variables according to platform
 #
-class common::params {
+class mtbvang::params {
   case $::osfamily {
     'Debian'           : { }
     'RedHat', 'Amazon' : { }

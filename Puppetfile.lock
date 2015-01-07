@@ -1,8 +1,0 @@
-FORGE
-  remote: https://forgeapi.puppetlabs.com
-  specs:
-    leonardothibes-wget (1.0.4)
-
-DEPENDENCIES
-  leonardothibes-wget (= 1.0.4)
-

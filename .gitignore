@@ -9,3 +9,4 @@ spec/fixtures
 vendor
 /.project
 /modules/
+/metadata.json

@@ -55,7 +55,7 @@
     "modules/stdlib/README.markdown": "ce381313a5288355111472e1a0ade266",
     "modules/apt/spec/acceptance/nodesets/centos-59-x64.yml": "57eb3e471b9042a8ea40978c467f8151",
     "modules/apt/spec/spec_helper_acceptance.rb": "8005cd5ced5c9f92c3eb1477b37e509b",
-    "manifests/ubuntu/virtualbox.pp": "192f168a39f34945840deeea43f7dd47",
+    "manifests/ubuntu/virtualbox.pp": "de2c703b4239d2161b5917b54bc75dc6",
     ".tmp/librarian/cache/source/puppet/forge/forgeapi_puppetlabs_com/puppetlabs-stdlib/4.5.0/stdlib/lib/puppet/parser/functions/hash.rb": "9d072527dfc7354b69292e9302906530",
     "modules/stdlib/lib/puppet/parser/functions/range.rb": "b8bbbc3179ea8e1c84952137cfc97cd0",
     ".tmp/librarian/cache/source/puppet/forge/forgeapi_puppetlabs_com/puppetlabs-apt/1.7.0/apt/tests/debian/testing.pp": "1cbee56baddd6a91d981db8fddec70fb",

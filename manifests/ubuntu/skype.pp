@@ -1,4 +1,5 @@
 class mtbvang::ubuntu::skype ($ensure = 'latest') {
+  # FIXME Shouldn't be including apt here.
   include apt
 
   apt::source { 'canonicalArhive':

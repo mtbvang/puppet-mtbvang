@@ -1,0 +1,12 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    leonardothibes-wget (1.0.4)
+    puppetlabs-apt (1.7.0)
+      puppetlabs-stdlib (>= 2.2.1)
+    puppetlabs-stdlib (4.5.0)
+
+DEPENDENCIES
+  leonardothibes-wget (>= 1.0.4)
+  puppetlabs-apt (>= 1.6.0)
+

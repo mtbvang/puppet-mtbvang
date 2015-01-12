@@ -5,8 +5,20 @@ FORGE
     puppetlabs-apt (1.7.0)
       puppetlabs-stdlib (>= 2.2.1)
     puppetlabs-stdlib (4.5.0)
+    stahnma-epel (1.0.2)
+
+GIT
+  remote: git://github.com/mtbvang/garethr-docker.git
+  ref: master
+  sha: d22ce564d5cf827c22ed5bceec42260eba502122
+  specs:
+    garethr-docker (1.2.0)
+      puppetlabs-apt (>= 1.1.0)
+      puppetlabs-stdlib (>= 4.1.0)
+      stahnma-epel (>= 0.0.6)
 
 DEPENDENCIES
+  garethr-docker (>= 0)
   leonardothibes-wget (>= 1.0.4)
   puppetlabs-apt (>= 1.6.0)
 

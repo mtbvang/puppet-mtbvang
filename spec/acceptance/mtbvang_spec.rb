@@ -15,7 +15,7 @@ describe 'mtbvang class' do
         class { '::mtbvang::ubuntu::docker': version => "#{dockerVersion}", }
         class { 'mtbvang::ubuntu::skype': }
         class { 'mtbvang::ubuntu::vagrant': }  
-        class { 'mtbvang::ubuntu::virtualbox':
+        class { 'mtbvang::ubuntu::virtualbox': }
       EOS
 
       # Run it twice and test for idempotency

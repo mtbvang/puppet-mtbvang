@@ -1,4 +1,4 @@
-define mtbvang::puppet::librarianpuppet () {
+class mtbvang::puppet::librarianpuppet () inherits mtbvang::params {
   exec { 'librarianPuppet':
     command   => $mtbvang::params::librarianPuppetInstallCmd,
     logoutput => on_failure,
@@ -7,7 +7,7 @@ define mtbvang::puppet::librarianpuppet () {
   }
 }
 
-class mtbvang::puppet::beaker {
+class mtbvang::puppet::beaker inherits mtbvang::params {
   $beakerPkgs = "make ruby-dev libxml2-dev libxslt1-dev g++"
 
   package { $beakerPkgs: ensure => 'installed' } ->
@@ -17,7 +17,7 @@ class mtbvang::puppet::beaker {
   }
 }
 
-class mtbvang::puppet ($puppetPackageName = $mtbvang::params::puppetPackageName, $puppetVersion = $mtbvang::params::puppetVersion) {
+class mtbvang::puppet ($puppetPackageName = $mtbvang::params::puppetPackageName, $puppetVersion = $mtbvang::params::puppetVersion) inherits mtbvang::params {
   ::wget::fetch { "fetchPuppet":
     before      => Package['puppetcommon', 'puppet'],
     source      => "https://apt.puppetlabs.com/${puppetPackageName}",

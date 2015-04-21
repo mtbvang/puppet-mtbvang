@@ -2,11 +2,11 @@
 # Install vagrant and plugins.
 #
 class mtbvang::ubuntu::vagrant (
-  $downloadUrl = "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3_x86_64.deb",
+  $downloadUrl = "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb",
   $user        = 'dev',
   $userHome    = '/home/dev',
   $plugins     = [
-    'vagrant-hosts,2.1.5',
+    'vagrant-hosts,2.4.0',
     'vagrant-vbguest,0.10.0',
     'vagrant-hostsupdater,0.0.11',
     'vagrant-cachier,1.1.0']) {

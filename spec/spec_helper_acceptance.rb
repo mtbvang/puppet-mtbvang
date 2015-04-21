@@ -28,6 +28,7 @@ RSpec.configure do |c|
       on host, 'ls -la /etc/puppet/modules'
       on host, "echo #{host['distmoduledir']}"
       on host, 'puppet config print modulepath'
+      on host, "echo whoami: $(whoami)"
     end
   end
 end

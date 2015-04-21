@@ -9,7 +9,7 @@ class mtbvang::ubuntu::vagrant (
     'vagrant-hosts,2.4.0',
     'vagrant-vbguest,0.10.0',
     'vagrant-hostsupdater,0.0.11',
-    'vagrant-cachier,1.1.0']) {
+    'vagrant-cachier,1.1.0']) inherits mtbvang::params {
   $downloadFile = '/tmp/vagrant.deb'
 
   ::wget::fetch { "fetchVagrant":

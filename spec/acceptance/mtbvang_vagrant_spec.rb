@@ -2,8 +2,6 @@ require 'spec_helper_acceptance'
 
 describe 'mtbvang::ubuntu::vagrant class' do
 
-  librarianVersion = '2.0.1'
-  dockerVersion = '1.4.0'
   vagrantVersion = '1.7.2'
 
   context 'default parameters' do
